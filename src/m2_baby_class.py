@@ -2,8 +2,8 @@
 A   Baby   class and methods that use the Baby class.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Wesley Derflinger.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -39,7 +39,7 @@ def main():
 
 
 # ----------------------------------------------------------------------
-# TODO: 2. Implement a class called   Baby   that has a constructor and
+# DONE: 2. Implement a class called   Baby   that has a constructor and
 #   two methods, as described below.  Your finished Baby class should
 #   cause the code above to display the expected output.  Hint: Your
 #   class will need instance variables that you must figure out.
@@ -90,10 +90,54 @@ def main():
 #
 ########################################################################
 
+class Baby(object):
+    """Represents a baby"""
+    def __init__(self, name):
+        """
+        What comes in:
+        -- self
+        -- a string for the name of the baby
+        What goes out:  Nothing (i.e., None).
+        Side effects:
+        -- Sets instance variables as needed
+        -- Prints 'Hello baby <your baby's name>!'
+        """
+        self.name = name
+        self.hours = 0
+        print('Hello Baby', self.name, '!')
 
+    def feed_baby(self):
+        """
+        What comes in:
+        -- self
+        What goes out:  Nothing (i.e., None).
+        Side effects:
+        -- Prints 'Thank you for feeding baby <your baby's name>.'
+        -- Modifies instance variables if needed
+        """
+        self.hours = 0
+        print('Thank you for feeding baby', self.name, '.')
 
-
-
+    def hour_passes(self):
+        """
+        What comes in:
+        -- self
+        What goes out:  Nothing (i.e., None).
+        Side effects:
+        -- If it is the first time this function has been called since Baby was created or fed
+          -- Prints 'Baby <your baby's name> is sleeping.'
+        -- If it is the second time this function has been called since baby was created or fed
+          -- Prints 'Baby <your baby's name> is awake.  Time for food.'
+        -- If it is the third (or more) time this function has been called since baby was created or fed
+          -- Prints 'Baby <your baby's name> is CRYING uncontrollably!  Feed the Baby!'
+        """
+        self.hours = self.hours + 1
+        if self.hours == 1:
+            print('Baby', self.name, 'is sleeping.')
+        if self.hours == 2:
+            print('Baby', self.name, 'is awake. Time for food.')
+        if self.hours >= 3:
+            print('Baby', self.name, 'is CRYING uncontrollably! Feed the Baby!')
 
 
 # ----------------------------------------------------------------------
